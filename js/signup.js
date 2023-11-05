@@ -1,7 +1,7 @@
 import { post } from "./utilities/api.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
-const PostSignup = () => {
+const PostSignUp = () => {
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/login";
     const datainjson = {
         email: getValue("email"),
@@ -29,4 +29,4 @@ const setCookieWithExpireHour = (cname, cvalue, exhour) => {
     document.cookie = `${cname}=${cvalue};${expires};path=/`;
 };
 
-window.PostSignup = PostSignup;
+window.PostSignUp = PostSignUp;
