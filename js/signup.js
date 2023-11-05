@@ -2,7 +2,7 @@ import { post } from "./utilities/api.js";
 import { getValue } from "https://jscroot.github.io/element/croot.js";
 
 const PostSignUp = () => {
-    const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/login";
+    const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/register";
     const datainjson = {
         email: getValue("email"),
         password: getValue("password")
