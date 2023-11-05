@@ -12,13 +12,13 @@ const PostSignIn = () => {
 };
 
 const responseData = (result) => {
-    if (result.message === "Selamat Datang") {
+    console.log(result);
+    if (result.status === true) {
         setCookieWithExpireHour("token", result.token, 2);
         alert(`Berhasil Masuk ${result.message}`);
         window.location.href = "dashboard.html";
     } else {
         alert(`Gagal Masuk password atau email salah`);
-        console.log(result.message);
     }
 };
 
