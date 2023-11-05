@@ -15,19 +15,11 @@ const PostSignUp = () => {
 const responseData = (result) => {
     console.log(result);
     if (result.status === true) {
-        setCookieWithExpireHour("token", result.token, 2);
         alert(`Berhasil Masuk ${result.message}`);
-        window.location.href = "dashboard.html";
+        window.location.href = "login.html";
     } else {
         alert(`Gagal Signup, ` + result.message );
     }
-};
-
-const setCookieWithExpireHour = (cname, cvalue, exhour) => {
-    const d = new Date();
-    d.setTime(d.getTime() + exhour * 60 * 60 * 1000);
-    const expires = `expires=${d.toUTCString()}`;
-    document.cookie = `${cname}=${cvalue};${expires};path=/`;
 };
 
 window.PostSignUp = PostSignUp;
