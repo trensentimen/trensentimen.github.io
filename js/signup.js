@@ -5,7 +5,8 @@ const PostSignUp = () => {
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/register";
     const datainjson = {
         email: getValue("email"),
-        password: getValue("password")
+        password: getValue("password"),
+        name: getValue("name")
     };
 
     post(target_url, datainjson, responseData);
