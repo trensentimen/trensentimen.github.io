@@ -1,5 +1,5 @@
 
-export const getCookie = (cname) => {
+export default function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
     for (let i = 0; i < ca.length; i++) {
