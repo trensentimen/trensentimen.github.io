@@ -8,8 +8,8 @@ const Postdata = () => {
     const target_url = "https://us-central1-trens-project.cloudfunctions.net/getAllTopic";
     const datainjson = {};
 
-    if (getCookie(cookieName)) {
-        const token = getCookie("token")
+    const token = getCookie("token")
+    if (getCookie(token)) {
         postWithBearer(target_url, token, datainjson, responseData)
     } else {
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
