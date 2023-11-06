@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="js/cookie.js"></script>
+    <script src="js/deleteCookie.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        deleteCookie("token");
-        
+        let konfirmasi = confirm('anda yakin akan logout?')
+        if (konfirmasi) {
+            deleteCookie("token");
+        }
+
+    </script>
+    <script type="module">
+        // Nama cookie yang akan diperiksa
+        import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+        const cookieName = "token";
+
+        // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+        if (!getCookie(cookieName)) {
+            // Jika cookie tidak ada, arahkan kembali ke halaman login
+            window.location.href = "login.html";
+        }
     </script>
 </body>
+
 </html>
