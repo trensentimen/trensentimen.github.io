@@ -1,3 +1,3 @@
-import { deleteCookie } from "./utilities/cookie";
+import { deleteCookie } from "./utilities/cookie.js";
 
 export default deleteCookie;
