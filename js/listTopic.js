@@ -33,7 +33,7 @@ const responseData = (result) => {
 
         result.data.forEach(isiRow)
 
-        window.location.href = "sentimen.html";
+        // window.location.href = "sentimen.html";
     } else {
         console.log(result.message);
         alert(`sesi anda sudah habis, silahkan logout dan login ulang`);
