@@ -9,9 +9,10 @@ const Postdata = () => {
     const datainjson = {};
 
     const token = getCookie("token")
-    if (getCookie(token)) {
+    if (token) {
         postWithBearer(target_url, token, datainjson, responseData)
     } else {
+        console.log("token tidak ada "+result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
     }
     // post(target_url, datainjson, responseData);
