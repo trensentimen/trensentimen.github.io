@@ -1,3 +1,3 @@
-import { getCookie } from "./utilities/cookie"
+import { getCookie } from "./utilities/cookie.js"
 
 export default getCookie;
