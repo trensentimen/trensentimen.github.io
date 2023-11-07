@@ -8,6 +8,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <style>
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
     <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.1/test1.js"></script>
     <link rel="icon" href="image/favicon.png">
     <!-- <script src="js/dashboard.js"></script> -->
@@ -17,8 +24,6 @@
 
 <body>
     <div>
-        <div class="columns is-multiline">
-        </div>
         <nav class="navbar py-4">
             <div class="container is-fluid">
                 <div class="navbar-brand">
@@ -57,44 +62,64 @@
             </div>
         </nav>
 
-        <section class="section">
+        <section class="section" style="min-height: 65vh;">
             <div class="container">
                 <div class="columns is-multiline" id="listTopic">
 
                     <!-- START LIST TOPIC -->
 
-                    <!-- <div class="column is-6-tablet is-4-widescreen">
-                        <div class="card">
-                            <div class="card-content">
-                                <div class="media">
-                                    <div class="media-content">
-                                        <p class="title is-4">PILPRES 2024</p>
-                                        <p class="subtitle is-6">YOUTUBE</p>
-                                    </div>
-                                </div>
-                                </div>
-                                <footer class="card-footer">
-                                    <span class="card-footer-item">
-                                        <ion-icon size="large" name="heart"></ion-icon>
-                                    </span>
-                                    <span class="card-footer-item">
-                                        <ion-icon size="large" name="eye-outline"></ion-icon>
-                                    </span>
-                                </footer>
-                            </div>
-                        </div>
-                    </div> -->
                     <!-- END LIST TOPIC -->
                 </div>
             </div>
+        </section>
     </div>
-    </section>
+
+    <!-- //MODAL ADD TOPIC -->
+    <div class="modal" id="myModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal dengan Input</p>
+                <button class="delete" aria-label="close" id="closeModalButton"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Input Pertama -->
+                <div class="field">
+                    <label class="label">Judul</label>
+                    <div class="control">
+                        <input id="judulInput" class="input" type="text" placeholder="Isi Judul" required>
+                    </div>
+                </div>
+
+                <!-- Input Kedua -->
+                <div class="field">
+                    <label class="label">Topik Yang Ingin Dianalisis</label>
+                    <div class="control">
+                        <input id="topikInput" class="input" type="text" placeholder="Isi Topik Yang Ingin Dianalisis" required>
+                    </div>
+                </div>
+
+                <!-- Radio Button -->
+                <div class="field">
+                    <label class="label">Pilih Sumber Data</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input id="radioTwitter" type="radio" name="radioOption" required> X (Twitter)
+                        </label>
+                        <label class="radio">
+                            <input id="radioYoutube" type="radio" name="radioOption" required> Youtube Comment
+                        </label>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="saveModalButton">Simpan</button>
+                <button class="button" id="cancelModalButton">Batal</button>
+            </footer>
+        </div>
     </div>
 
 
-
-
-    </div>
 
     </section>
 
@@ -132,11 +157,13 @@
             </div>
         </div>
     </footer>
-    </div>
 
+    <button class="button is-warning is-rounded fixed-button is-large" id="showModalButton">
+        <ion-icon name="add-outline"></ion-icon> <!-- Gunakan ikon Font Awesome (perlu diimpor terlebih dahulu) -->
+    </button>
     <script type="module" src="./js/listTopic.js"></script>
 
-    <script type="module">
+    <!-- <script type="module">
         // Nama cookie yang akan diperiksa
         import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
         const cookieName = "token";
@@ -146,7 +173,7 @@
             // Jika cookie tidak ada, arahkan kembali ke halaman login
             window.location.href = "login.html";
         }
-    </script>
+    </script> -->
     <script>
         function logout() {
             let konfirmasi = confirm('anda yakin akan logout?')
@@ -158,6 +185,31 @@
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script type="module">
+        import postAddTopic from "./js/addTopic.js";
+        const showModalButton = document.getElementById('showModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const cancelModalButton = document.getElementById('cancelModalButton');
+        const simpanModalButton = document.getElementById('simpanModalButton');
+        const myModal = document.getElementById('myModal');
+
+        showModalButton.addEventListener('click', () => {
+            myModal.classList.add('is-active');
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            myModal.classList.remove('is-active');
+        });
+
+        cancelModalButton.addEventListener('click', () => {
+            myModal.classList.remove('is-active');
+        });
+
+        simpanModalButton.addEventListener('click', () => {
+            postAddTopic();
+        });
+    </script>
 </body>
 
 </html>
