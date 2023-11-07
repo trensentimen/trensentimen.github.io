@@ -14,10 +14,10 @@ const PostAddTopic = () => {
 
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/addTopic";
     const datainjson = {
-        topicname: getValue("email"),
+        topicname: getValue("topikInput"),
         source: {
             source: selectedValue,
-            value: getValue("password")
+            value: getValue("topikInput")
         }
     };
     const token = getCookie("token")
