@@ -163,7 +163,7 @@
     </button>
     <script type="module" src="./js/listTopic.js"></script>
 
-    <!-- <script type="module">
+    <script type="module">
         // Nama cookie yang akan diperiksa
         import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
         const cookieName = "token";
@@ -173,7 +173,7 @@
             // Jika cookie tidak ada, arahkan kembali ke halaman login
             window.location.href = "login.html";
         }
-    </script> -->
+    </script>
     <script>
         function logout() {
             let konfirmasi = confirm('anda yakin akan logout?')
@@ -191,7 +191,7 @@
         const showModalButton = document.getElementById('showModalButton');
         const closeModalButton = document.getElementById('closeModalButton');
         const cancelModalButton = document.getElementById('cancelModalButton');
-        const simpanModalButton = document.getElementById('simpanModalButton');
+        const simpanModalButton = document.getElementById('saveModalButton');
         const myModal = document.getElementById('myModal');
 
         showModalButton.addEventListener('click', () => {
