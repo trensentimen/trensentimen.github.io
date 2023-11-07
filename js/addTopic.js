@@ -12,9 +12,21 @@ const PostAddTopic = () => {
         }
     });
 
+    //validasi form
+    if (getValue("judulInput") === ""|| getValue("judulInput") === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    }else if (getValue("topikInput") === ""|| getValue("judulInput") === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    } else if (selectedValue === "" || selectedValue === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    }
+
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/addTopic";
     const datainjson = {
-        topicname: getValue("topikInput"),
+        topicname: getValue("judulInput"),
         source: {
             source: selectedValue,
             value: getValue("topikInput")
