@@ -5,7 +5,7 @@ export let card = `
             <div class="media">
                 <div class="media-content">
                     <p class="title is-4">#JUDUL#</p>
-                    <p class="subtitle is-6">"#SOURCE#"</p>
+                    <p class="subtitle is-6">#SOURCE#</p>
                 </div>
             </div>
             </div>

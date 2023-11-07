@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <style>
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+    <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.1/test1.js"></script>
+    <link rel="icon" href="image/favicon.png">
+    <!-- <script src="js/dashboard.js"></script> -->
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/cloud_functions@main/test1.js"></script> -->
+    <script type="module" src="js/deleteCookie.js"></script>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar py-4">
+            <div class="container is-fluid">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#">
+                        <img class="image" src="https://bulma.io/images/bulma-logo.png" alt="" width="96px">
+                    </a>
+                    <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href=sentimen.html>Daftar Sentimen</a>
+                        <a class="navbar-item" href="profile.html">Profile</a>
+                        <a class="navbar-item" href="login.html" onclick="logout()">Logout</a>
+                    </div>
+                    <div class="navbar-item">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input class="input" type="search" placeholder="Search" aria-label="Search">
+                            </div>
+                            <div class="control">
+                                <button class="button" type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24"
+                                        stroke="currentColor" style="width: 24px;height: 24px">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="section" style="min-height: 65vh;">
+            <div class="container">
+                <h2 id="judul">Judul: </h2>
+                <h3 id="topic">Topic: </h3>
+                <h3 id="source">Sumber Data: </h3>
+            </div>
+        </section>
+    </div>
+
+    <!-- //MODAL EDIT TOPIC -->
+    <div class="modal" id="myModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Modal dengan Input</p>
+                <button class="delete" aria-label="close" id="closeModalButton"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Input Pertama -->
+                <div class="field">
+                    <label class="label">Judul</label>
+                    <div class="control">
+                        <input id="judulInput" class="input" type="text" placeholder="Isi Judul" required>
+                    </div>
+                </div>
+
+                <!-- Input Kedua -->
+                <div class="field">
+                    <label class="label">Topik Yang Ingin Dianalisis</label>
+                    <div class="control">
+                        <input id="topikInput" class="input" type="text" placeholder="Isi Topik Yang Ingin Dianalisis" required>
+                    </div>
+                </div>
+
+                <!-- Radio Button -->
+                <div class="field">
+                    <label class="label">Pilih Sumber Data</label>
+                    <div class="control">
+                        <label class="radio">
+                            <input id="radioTwitter" type="radio" name="radioOption" required> X (Twitter)
+                        </label>
+                        <label class="radio">
+                            <input id="radioYoutube" type="radio" name="radioOption" required> Youtube Comment
+                        </label>
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" id="saveModalButton">Simpan</button>
+                <button class="button" id="cancelModalButton">Batal</button>
+            </footer>
+        </div>
+    </div>
+
+
+
+    </section>
+
+    <section class="section has-background-primary">
+
+    </section>
+
+    <footer class="section">
+        <div class="container">
+            <div class="pb-5 is-flex is-flex-wrap-wrap is-justify-content-between is-align-items-center">
+                <div class="mr-auto mb-2">
+                    <a class="is-inline-block" href="#">
+                        <img class="image" src="https://bulma.io/images/bulma-logo.png" alt="" width="96px"></a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5" style="border-top: 1px solid #dee2e6;"></div>
+        <div class="container">
+            <div class="is-flex-tablet is-justify-content-between is-align-items-center">
+                <p>All rights reserved © My App 20XX</p>
+                <div class="py-2 is-hidden-tablet"></div>
+                <div class="ml-auto">
+                    <a class="mr-4 is-inline-block" href="#">
+                        <img src="image/fb.jpeg" alt="facebook" width="30" height="30"></a>
+                    <a class="mr-4 is-inline-block" href="#">
+                        <img src="image/tweet.png" alt="tweet" width="30" height="30"></a>
+                    <a class="mr-4 is-inline-block" href="#">
+                        <img src="image/git.png" alt="facebook" width="30" height="30"></a>
+                    <a class="mr-4 is-inline-block" href="#">
+                        <img src="image/ig.jpeg" alt="facebook" width="30" height="30"></a>
+                    <a class="is-inline-block" href="#">
+                        <img src="image/linkedin.png" alt="facebook" width="30" height="30"></a>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="button is-warning is-rounded fixed-button is-large" id="showModalButton">
+        <ion-icon name="add-outline"></ion-icon> <!-- Gunakan ikon Font Awesome (perlu diimpor terlebih dahulu) -->
+    </button>
+    <script type="module" src="./js/getTopic.js"></script>
+
+    <script type="module">
+        // Nama cookie yang akan diperiksa
+        import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+        const cookieName = "token";
+
+        // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+        if (!getCookie(cookieName)) {
+            // Jika cookie tidak ada, arahkan kembali ke halaman login
+            window.location.href = "login.html";
+        }
+    </script>
+    <script>
+        function logout() {
+            let konfirmasi = confirm('anda yakin akan logout?')
+            if (konfirmasi) {
+                deleteCookie("token");
+            }
+
+        }
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script type="module">
+        import postAddTopic from "./js/addTopic.js";
+        const showModalButton = document.getElementById('showModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const cancelModalButton = document.getElementById('cancelModalButton');
+        const simpanModalButton = document.getElementById('simpanModalButton');
+        const myModal = document.getElementById('myModal');
+
+        showModalButton.addEventListener('click', () => {
+            myModal.classList.add('is-active');
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            myModal.classList.remove('is-active');
+        });
+
+        cancelModalButton.addEventListener('click', () => {
+            myModal.classList.remove('is-active');
+        });
+
+        simpanModalButton.addEventListener('click', () => {
+            postAddTopic();
+        });
+    </script>
+</body>
+
+</html>
