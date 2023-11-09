@@ -5,7 +5,17 @@ import { addInner } from "./utilities/element.js"
 
 const Postdata = () => {
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/getTopic";
-    const datainjson = {};
+
+    let id = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has(id)) {
+        if (urlParams.get(id) != '') {
+            id = urlParams.get(id);
+        }
+    }
+    const datainjson = {
+        "_id": id
+    };
 
     const token = getCookie("token")
     if (token) {
@@ -21,15 +31,15 @@ const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
         const inputMapping = [
-            { id: "judulInput", "path": "topicname" },
-            { id: "topikInput", "path": "source.value" },
-            { id: "radioOption", "path": "source.source" }
+            { id: "judul", "path": "topicname" },
+            { id: "topik", "path": "source.value" },
+            { id: "source", "path": "source.source" }
         ]
 
 
         inputMapping.forEach(({ id, path }) => {
             const inputElement = document.getElementById(id);
-            const value = getNestedValue(result.data, path);
+            const value = getNestedValue(result.data[0], path);
             // console.log(`Value at path ${path}:`, value);
             inputElement.value = value;
         })
