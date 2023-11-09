@@ -54,9 +54,9 @@ const PostUpdateTopic = () => {
 };
 
 const responseData = (result) => {
-    // console.log(result);
+    console.log(result);
     if (result.status === true) {
-        window.location.href = "topic.html?id=" + result.data[0]._id;
+        window.location.href = "topik.html?id=" + result.data[0]._id;
     } else {
         console.log(result.message);
         alert(`parameter bermasalah atau sesi anda sudah habis, silahkan ulangi atau logout dan login ulang`);
