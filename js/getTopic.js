@@ -8,9 +8,9 @@ const Postdata = () => {
 
     let id = false;
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has(id)) {
-        if (urlParams.get(id) != '') {
-            id = urlParams.get(id);
+    if (urlParams.has('id')) {
+        if (urlParams.get('id') != '') {
+            id = urlParams.get('id');
         }
     }
     const datainjson = {
