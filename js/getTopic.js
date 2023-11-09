@@ -30,14 +30,15 @@ const Postdata = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        
+
         addInner("judul", result.data[0].topicname)
         addInner("topic", result.data[0].source.value)
         addInner("source", result.data[0].source.source)
+        
         addInner("judulInput", result.data[0].topicname)
         addInner("topikInput", result.data[0].source.value)
-        addInner("radioOption", result.data[0].source.source)
-
+        const defaultValue = result.data[0].source.source; // Change this value as needed
+        document.querySelector(`input[type="radio"][value="${defaultValue}"]`).checked = true;
         // window.location.href = "sentimen.html";
     } else {
         console.log(result.message);
