@@ -34,9 +34,10 @@ const responseData = (result) => {
         addInner("judul", result.data[0].topicname)
         addInner("topic", result.data[0].source.value)
         addInner("source", result.data[0].source.source)
+
+        document.getElementById("judulInput").value = result.data[0].topicname;
+        document.getElementById("topikInput").value = result.data[0].source.value;
         
-        addInner("judulInput", result.data[0].topicname)
-        addInner("topikInput", result.data[0].source.value)
         const defaultValue = result.data[0].source.source; // Change this value as needed
         document.querySelector(`input[type="radio"][value="${defaultValue}"]`).checked = true;
         // window.location.href = "sentimen.html";
