@@ -1,6 +1,7 @@
 import { postWithBearer } from "./utilities/api.js";
 // import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import getCookie from "./getCookie.js";
+import { getValue } from "./utilities/element.js"
 
 const PostUpdateTopic = () => {
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/updateTopic";
