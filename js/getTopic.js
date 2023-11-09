@@ -17,7 +17,6 @@ const Postdata = () => {
         "_id": id
     };
     alert("id " + id)
-    console.log(datainjson);
     const token = getCookie("token")
     if (token) {
         postWithBearer(target_url, token, datainjson, responseData)
@@ -31,19 +30,10 @@ const Postdata = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        const inputMapping = [
-            { id: "judul", "path": "topicname" },
-            { id: "topik", "path": "source.value" },
-            { id: "source", "path": "source.source" }
-        ]
-
-
-        inputMapping.forEach(({ id, path }) => {
-            const inputElement = document.getElementById(id);
-            const value = getNestedValue(result.data[0], path);
-            // console.log(`Value at path ${path}:`, value);
-            inputElement.value = value;
-        })
+        
+        addInner("judul", result.data[0].topicname)
+        addInner("topic", result.data[0].source.value)
+        addInner("source", result.data[0].source.source)
 
         // window.location.href = "sentimen.html";
     } else {
@@ -51,9 +41,5 @@ const responseData = (result) => {
         alert(`sesi anda sudah habis, silahkan logout dan login ulang`);
     }
 };
-function getNestedValue(obj, path) {
-    const value = path.split('.').reduce((value, key) => (value && value[key]) ? value[key] : '', obj);
-    return value;
-}
 
 Postdata();
