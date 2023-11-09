@@ -1,10 +1,30 @@
 import { postWithBearer } from "./utilities/api.js";
 // import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import getCookie from "./getCookie.js";
-import { addInner } from "./utilities/element.js"
 
-const Postdata = () => {
-    const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/getTopic";
+const PostUpdateTopic = () => {
+    const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/updateTopic";
+
+    const radioButtons = document.querySelectorAll('input[name="radioOption"]');
+    let selectedValue;
+
+    radioButtons.forEach(radioButton => {
+        if (radioButton.checked) {
+            selectedValue = radioButton.value;
+        }
+    });
+
+    //validasi form
+    if (getValue("judulInput") === ""|| getValue("judulInput") === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    }else if (getValue("topikInput") === ""|| getValue("judulInput") === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    } else if (selectedValue === "" || selectedValue === null) {
+        alert("Topik tidak boleh kosong");
+        return;
+    }
 
     let id = false;
     const urlParams = new URLSearchParams(window.location.search);
@@ -14,7 +34,12 @@ const Postdata = () => {
         }
     }
     const datainjson = {
-        "_id": id
+        "_id": id,
+        "topicname": getValue("judulInput"),
+        "source": {
+            "source": selectedValue,
+            "value": getValue("topikInput")
+        }
     };
     const token = getCookie("token")
     if (token) {
@@ -30,15 +55,7 @@ const Postdata = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        
-        addInner("judul", result.data[0].topicname)
-        addInner("topic", result.data[0].source.value)
-        addInner("source", result.data[0].source.source)
-        addInner("judulInput", result.data[0].topicname)
-        addInner("topikInput", result.data[0].source.value)
-        addInner("radioOption", result.data[0].source.source)
-
-        // window.location.href = "sentimen.html";
+        window.location.href = "topic.html?id=" + result.data[0]._id;
     } else {
         console.log(result.message);
         alert(`parameter bermasalah atau sesi anda sudah habis, silahkan ulangi atau logout dan login ulang`);
@@ -46,4 +63,4 @@ const responseData = (result) => {
     }
 };
 
-Postdata();
+export default PostUpdateTopic;
