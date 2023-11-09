@@ -16,7 +16,7 @@ const Postdata = () => {
     const datainjson = {
         "_id": id
     };
-
+    console.log(datainjson);
     const token = getCookie("token")
     if (token) {
         postWithBearer(target_url, token, datainjson, responseData)
