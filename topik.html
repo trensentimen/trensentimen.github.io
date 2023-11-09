@@ -68,7 +68,7 @@
                 <h3 id="topic">Topic: </h3>
                 <h3 id="source">Sumber Data: </h3>
                 <br>
-                <button class="button is-danger">Delete</button>
+                <button class="button is-danger" onclick="deleteData()">Delete</button>
             </div>
         </section>
     </div>
@@ -162,6 +162,7 @@
         <ion-icon name="create-outline"></ion-icon> <!-- Gunakan ikon Font Awesome (perlu diimpor terlebih dahulu) -->
     </button>
     <script type="module" src="./js/getTopic.js"></script>
+    <script type="module" src="./js/deleteData.js"></script>
 
     <script type="module">
         // Nama cookie yang akan diperiksa
@@ -180,7 +181,13 @@
             if (konfirmasi) {
                 deleteCookie("token");
             }
+        }
 
+        function hapusData(){
+            let konfirmasi = confirm('yakin ingin menghapus?')
+            if (konfirmasi) {
+                deleteCookie();
+            }
         }
     </script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
