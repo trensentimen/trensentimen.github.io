@@ -16,13 +16,13 @@ const Postdata = () => {
     const datainjson = {
         "_id": id
     };
-    alert("id " + id)
     const token = getCookie("token")
     if (token) {
         postWithBearer(target_url, token, datainjson, responseData)
     } else {
         console.log("token tidak ada " + result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
+        window.location.href = "sentimen.html";
     }
     // post(target_url, datainjson, responseData);
 };
@@ -38,7 +38,8 @@ const responseData = (result) => {
         // window.location.href = "sentimen.html";
     } else {
         console.log(result.message);
-        alert(`sesi anda sudah habis, silahkan logout dan login ulang`);
+        alert(`parameter bermasalah atau sesi anda sudah habis, silahkan ulangi atau logout dan login ulang`);
+        window.location.href = "sentimen.html";
     }
 };
 
