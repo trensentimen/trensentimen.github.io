@@ -16,6 +16,7 @@ const Postdata = () => {
     const datainjson = {
         "_id": id
     };
+    alert("id " + id)
     console.log(datainjson);
     const token = getCookie("token")
     if (token) {
