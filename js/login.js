@@ -3,7 +3,7 @@ import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import {showLoadingModal, hideLoadingModal} from "./utilities/loading.js"
 
 const PostSignIn = () => {
-    showLoadingModal
+    showLoadingModal()
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/login";
     const datainjson = {
         email: getValue("email"),

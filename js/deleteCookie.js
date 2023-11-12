@@ -1,3 +1,5 @@
-import { deleteCookie } from "./utilities/cookie.js";
+import { deleteCookie as deleteCookieUtil } from "./utilities/cookie.js";
+console.log("deleteCookie.js is loaded");
+// export default deleteCookieUtil;
 
-export default deleteCookie;
+window.deleteCookieUtil = deleteCookieUtil;

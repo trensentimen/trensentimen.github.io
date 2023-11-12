@@ -11,6 +11,7 @@
 //     return false;
 // }
 export const deleteCookie = (name) => {
+    console.log("delete cookie")
     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
 export const setCookieWithExpireDay = (cname, cvalue, exdays) => {
