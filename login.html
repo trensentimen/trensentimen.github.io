@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css">
+  <link rel="stylesheet" type="text/css" href="css/loading.css">
 </head>
 
 <body>
@@ -49,7 +50,14 @@
         </nav>
       </div>
     </div>
+    <div id="loadingModal" class="modalLoading">
+      <div class="modalContentLoading">
+        <div class="loaderLoading"></div>
+        <p>Loading...</p>
+      </div>
+    </div>
   </section>
+  <!-- <script src="./js/utilities/loading.js"></script> -->
 
   <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.2/login.js"></script> -->
   <script type="module" src="./js/login.js"></script>
