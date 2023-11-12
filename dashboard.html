@@ -104,11 +104,11 @@
     const cookieName = "token";
 
     // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
-    // if (!getCookie(cookieName)) {
-    //   // Jika cookie tidak ada, arahkan kembali ke halaman login
-    //   window.location.href = "login.html";
-    //   // console.log("cookie tidak ada")
-    // }
+    if (!getCookie(cookieName)) {
+      // Jika cookie tidak ada, arahkan kembali ke halaman login
+      window.location.href = "login.html";
+      // console.log("cookie tidak ada")
+    }
     // import { initDropdownMenu } from "https://cdn.jsdelivr.net/gh/trensentimen/cloud_functions@main/test1.js";
     // initDropdownMenu();
   </script>
