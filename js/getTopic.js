@@ -2,8 +2,10 @@ import { postWithBearer } from "./utilities/api.js";
 // import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
 import getCookie from "./getCookie.js";
 import { addInner } from "./utilities/element.js"
+import {showLoadingModal, hideLoadingModal} from "./utilities/loading.js"
 
 const Postdata = () => {
+    showLoadingModal()
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/getTopic";
 
     let id = false;
@@ -22,7 +24,9 @@ const Postdata = () => {
     } else {
         console.log("token tidak ada " + result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
+        hideLoadingModal
         window.location.href = "sentimen.html";
+
     }
     // post(target_url, datainjson, responseData);
 };
@@ -40,11 +44,14 @@ const responseData = (result) => {
         
         const defaultValue = result.data[0].source.source; // Change this value as needed
         document.querySelector(`input[type="radio"][value="${defaultValue}"]`).checked = true;
+        hideLoadingModal()
         // window.location.href = "sentimen.html";
     } else {
         console.log(result.message);
         alert(`parameter bermasalah atau sesi anda sudah habis, silahkan ulangi atau logout dan login ulang`);
+        hideLoadingModal
         window.location.href = "sentimen.html";
+
     }
 };
 

@@ -3,8 +3,10 @@ import { postWithBearer } from "./utilities/api.js";
 import getCookie from "./getCookie.js";
 import { addInner } from "./utilities/element.js"
 import { card } from "./temp/table.js";
+import {showLoadingModal, hideLoadingModal} from "./utilities/loading.js"
 
 const Postdata = () => {
+    showLoadingModal()
     const target_url = "https://us-central1-trens-project.cloudfunctions.net/getAllTopic";
     const datainjson = {};
 
@@ -14,6 +16,7 @@ const Postdata = () => {
     } else {
         console.log("token tidak ada "+result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
+        hideLoadingModal()
     }
     // post(target_url, datainjson, responseData);
 };
@@ -33,10 +36,10 @@ const responseData = (result) => {
         }
 
         result.data.forEach(isiRow)
-
-        // window.location.href = "sentimen.html";
+        hideLoadingModal()
     } else {
         console.log(result.message);
+        hideLoadingModal()
         alert(`sesi anda sudah habis, silahkan logout dan login ulang`);
     }
 };
