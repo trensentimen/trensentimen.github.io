@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.1/test1.js"></script>
   <link rel="icon" href="image/favicon.png">
+  <link rel="stylesheet" href="css/index.css">
   <!-- <script src="js/dashboard.js"></script> -->
   <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/cloud_functions@main/test1.js"></script> -->
-  <script type="module" src="js/deleteCookie.js"></script>
+  
 </head>
-
 <body>
   <div>
     <div class="columns is-multiline">
@@ -97,33 +97,13 @@
     </footer>
   </div>
 
-  
-  <script type="module">
-    // Nama cookie yang akan diperiksa
-    import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
-    const cookieName = "token";
-
-    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
-    if (!getCookie(cookieName)) {
-      // Jika cookie tidak ada, arahkan kembali ke halaman login
-      window.location.href = "login.html";
-      // console.log("cookie tidak ada")
-    }
+  <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.5/cekCookie.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.5/deleteCookie.js"></script>
+  <!-- <script type="module">
     // import { initDropdownMenu } from "https://cdn.jsdelivr.net/gh/trensentimen/cloud_functions@main/test1.js";
     // initDropdownMenu();
-  </script>
-  <script>
-    // import { deleteCookie } from "./js/utilities/cookie.js";
-    function logout() {
-      let konfirmasi = confirm('anda yakin akan logout?')
-      if (konfirmasi) {
-        deleteCookieUtil("token");
-        window.location.href = "login.html";
-        // document.cookie = "token" + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      }
+  </script> -->
 
-    }
-  </script>
 </body>
 
 </html>

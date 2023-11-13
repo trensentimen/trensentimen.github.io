@@ -1,0 +1,10 @@
+/* Add this CSS for the transition effect */
+.navbar-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out; /* You can adjust the duration and easing function */
+}
+
+.navbar-menu.is-active {
+    max-height: 500px; /* You can adjust the max-height value */
+}
