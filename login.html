@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" type="text/css" href="css/login.css">
   <link rel="stylesheet" type="text/css" href="css/loading.css">
+  <link rel="icon" href="image/favicon.png">
 </head>
 
 <body>
@@ -57,23 +58,23 @@
       </div>
     </div>
   </section>
-  <!-- <script src="./js/utilities/loading.js"></script> -->
 
-  <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.2/login.js"></script> -->
-  <script type="module" src="./js/login.js"></script>
+  <!-- <script type="module" src="./js/login.js"></script> -->
+  <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.03/login copy.js"></script>
 
+  <script type="module" src="js/cekCookie.js"></script>
   <script type="module">
-    // Nama cookie yang akan diperiksa
 
+    // import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
+    // const cookieName = "token";
 
-    import { getCookie } from "https://jscroot.github.io/cookie/croot.js";
-    const cookieName = "token";
-
-    // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
-    if (getCookie(cookieName)) {
-      // Jika cookie tidak ada, arahkan kembali ke halaman login
-      window.location.href = "dashboard.html";
-    }
+    // // Periksa apakah cookie ada dengan menggunakan fungsi dari file cookieUtil.js
+    // if (getCookie(cookieName)) {
+    //   // Jika cookie tidak ada, arahkan kembali ke halaman login
+    //   window.location.href = "dashboard.html";
+    // }else{
+    //   console.log("Cookie tidak ada");
+    // }
   </script>
 </body>
 
