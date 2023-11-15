@@ -1,10 +1,33 @@
 /* Add this CSS for the transition effect */
+.navbar-burger {
+    transition: transform 0.9s ease-in-out;
+    /* Add a transition to the "transform" property */
+}
+/* Add the transition property for max-height */
 .navbar-menu {
-    max-height: 0;
+    max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out; /* You can adjust the duration and easing function */
+    transition: max-height 0.9s ease; /* Adjust the duration and timing function as needed */
 }
 
+/* Add styles for when the menu is active */
 .navbar-menu.is-active {
-    max-height: 500px; /* You can adjust the max-height value */
+    max-height: 500px;
+    overflow: auto;
+}
+
+@media screen and (min-width: 769px) {
+    .navbar-menu {
+        max-height: none;
+        /* Remove max-height for larger screens */
+        overflow: visible;
+        /* Adjust overflow as needed */
+        transition: none;
+        /* Disable transition for larger screens if necessary */
+    }
+
+    .navbar-menu.is-active {
+        max-height: none;
+        /* Remove max-height when active for larger screens */
+    }
 }

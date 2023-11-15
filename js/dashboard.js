@@ -1,17 +1,33 @@
-/**
- * Dropdown menu
- */
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const menus = document.querySelectorAll('.navbar-burger');
     const dropdowns = document.querySelectorAll('.navbar-menu');
 
     if (menus.length && dropdowns.length) {
-        for (var i = 0; i < menus.length; i++) {
-            menus[i].addEventListener('click', function() {
-                for (var j = 0; j < dropdowns.length; j++) {
-                    dropdowns[j].classList.toggle('is-active');
-                }
+        for (let i = 0; i < menus.length; i++) {
+            console.log(menus[i])
+            menus[i].addEventListener('click', function () {
+                // console.log(menus[i])
+                toggleMaxHeight(dropdowns);
+                menus[i].classList.toggle('is-active');
             });
         }
     }
 });
+function toggleMaxHeight(dropdowns) {
+    // console.log(dropdowns)
+    for (let j = 0; j < dropdowns.length; j++) {
+        const dropdown = dropdowns[j];
+        const isOpen = dropdown.classList.contains('is-active');
+        // Toggle the 'is-active' class to trigger CSS transition
+        dropdown.classList.toggle('is-active');
+
+        // Use a delay to set max-height after the 'is-active' class is applied
+        setTimeout(() => {
+            if (isOpen) {
+                dropdown.style.maxHeight = '0';
+            } else {
+                dropdown.style.maxHeight = '500px';
+            }
+        }, 10);
+    }
+}
