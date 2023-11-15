@@ -1,40 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Bulma Mobile Columns</title>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <style>
-        .container {
-            margin-top: 25px;
+        /* Add custom styles for transition */
+        .navbar-burger {
+            transition: transform 0.3s ease;
+            /* Add a transition to the "transform" property */
+        }
+
+        .navbar-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 4s ease;
+            /* Add a transition to the "max-height" property */
+        }
+
+        .navbar-menu.is-active {
+            max-height: 500px;
+            /* Adjust the max-height as needed */
         }
     </style>
+    <title>Bulma Navbar with Transition</title>
 </head>
 
-<body class="has-text-centered">
-    <section class="section">
-        <div class="container">
-            <div class="columns is-multiline">
-                <div id="col1" class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-                    <h1 class="title">Hello World</h1>
-                    <p class="subtitle">My first website with Bulma</p>
-                </div>
-                <div id="col2" class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-                    <h1 class="title">Hello World</h1>
-                    <p class="subtitle">My first website with bulma</p>
-                </div>
-                <div id="col3" class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-                    <h1 class="title">Hello World</h1>
-                    <p class="subtitle">My first website with Bulma</p>
-                </div>
-                <div id="col4" class="column is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-                    <h1 class="title">Hello World</h1>
-                    <p class="subtitle">My first website with bulma</p>
-                </div>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="Bulma Logo">
+            </a>
+
+            <!-- Burger menu for mobile -->
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbar" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#">Home</a>
+                <a class="navbar-item" href="#">About</a>
+                <a class="navbar-item" href="#">Services</a>
+                <a class="navbar-item" href="#">Contact</a>
             </div>
         </div>
-    </section>
+    </nav>
+
+    <!-- Your page content goes here -->
+
+    <script>
+        // Toggle burger menu on mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(function ($el) {
+                    $el.addEventListener('click', function () {
+                        const target = $el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        $el.classList.toggle('is-active');
+                        console.log($el);
+                        // Toggle the "is-active" class on the "navbar-menu" after a short delay
+                        setTimeout(function () {
+                            $target.classList.toggle('is-active');
+                        }, 10); // Adjust the delay as needed
+                    });
+                });
+            }
+        });
+
+    </script>
+
 </body>
 
 </html>
