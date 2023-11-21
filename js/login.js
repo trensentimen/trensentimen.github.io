@@ -17,7 +17,7 @@ const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
         setCookieWithExpireHour("token", result.token, 2);
-        hideLoadingModal
+        hideLoadingModal()
         alert(`Berhasil Masuk ${result.message}`);
         window.location.href = "dashboard.html";
     } else {

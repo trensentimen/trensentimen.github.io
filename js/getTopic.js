@@ -24,7 +24,7 @@ const Postdata = () => {
     } else {
         console.log("token tidak ada " + result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
-        hideLoadingModal
+        hideLoadingModal()
         window.location.href = "sentimen.html";
 
     }
@@ -49,7 +49,7 @@ const responseData = (result) => {
     } else {
         console.log(result.message);
         alert(`parameter bermasalah atau sesi anda sudah habis, silahkan ulangi atau logout dan login ulang`);
-        hideLoadingModal
+        hideLoadingModal()
         window.location.href = "sentimen.html";
 
     }

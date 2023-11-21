@@ -15,7 +15,8 @@ const SendOTP = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        hideLoadingModal
+        setCookie("email", getValue("email"));
+        hideLoadingModal()
         alert(`Berhasil Mengirim OTP`);
         window.location.href = "verifyOTP.html";
     } else {
@@ -23,6 +24,11 @@ const responseData = (result) => {
         alert(`Gagal Mengirim OTP password atau email salah`);
     }
 };
+
+const setCookie = (cname, cvalue) => {
+    document.cookie = `${cname}=${cvalue};path=/`;
+};
+
 
 
 window.SendOTP = SendOTP;
