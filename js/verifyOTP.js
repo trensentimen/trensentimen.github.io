@@ -26,7 +26,7 @@ const verifyOTP = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        setCookie("email", getValue("email"));
+        setCookie("email", email);
         setCookie("otp", getValue("otp"));
         hideLoadingModal()
         alert(`Kode OTP benar`);
