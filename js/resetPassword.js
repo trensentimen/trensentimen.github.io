@@ -15,6 +15,12 @@ const resetPassword = () => {
         return
     }
 
+    if( getValue("password") !== getValue("confirmPassword")){
+        alert("password tidak sama")
+        hideLoadingModal()
+        return
+    }
+
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/resetPassword";
     const datainjson = {
         email: email,
