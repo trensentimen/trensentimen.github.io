@@ -33,7 +33,7 @@ const responseData = (result) => {
         window.location.href = "resetPassword.html";
     } else {
         hideLoadingModal()
-        alert(`Kode OTP salah`);
+        alert(result.message);
     }
 };
 
