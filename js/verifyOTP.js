@@ -39,7 +39,4 @@ const responseData = (result) => {
 const setCookie = (cname, cvalue) => {
     document.cookie = `${cname}=${cvalue};path=/`;
 };
-
-
-
 window.verifyOTP = verifyOTP;
