@@ -26,7 +26,7 @@ const verifyOTP = () => {
 const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
-        setCookie("otp", getValue("otp"));
+        setCookie("otp", getValue("kodeOTP"));
         hideLoadingModal()
         alert(`Kode OTP benar`);
         window.location.href = "resetPassword.html";
