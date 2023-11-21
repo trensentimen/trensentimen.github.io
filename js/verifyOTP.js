@@ -17,7 +17,7 @@ const verifyOTP = () => {
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/verifyOtp";
     const datainjson = {
         email: email,
-        otp: getValue("otp")
+        otp: getValue("kodeOTP")
     };
 
     post(target_url, datainjson, responseData);
