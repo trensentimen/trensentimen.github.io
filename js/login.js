@@ -1,5 +1,5 @@
 import { post } from "./utilities/api.js";
-import { setInner, getValue } from "https://jscroot.github.io/element/croot.js";
+import { getValue } from "https://jscroot.github.io/element/croot.js";
 import {showLoadingModal, hideLoadingModal} from "./utilities/loading.js"
 
 const PostSignIn = () => {
