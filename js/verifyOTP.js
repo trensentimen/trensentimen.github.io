@@ -10,7 +10,7 @@ const verifyOTP = () => {
     if(!email){
         alert("Email tidak ditemukan")
         hideLoadingModal()
-        document.href = "sendOTP.html"
+        window.location.href = "sendOTP.html"
         return
     }
 

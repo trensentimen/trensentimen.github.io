@@ -11,7 +11,7 @@ const resetPassword = () => {
     if(!email || !otp){
         alert("belum mengirim OTP")
         hideLoadingModal()
-        document.href = "sendOTP.html"
+        window.location.href = "sendOTP.html"
         return
     }
 
