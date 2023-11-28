@@ -27,8 +27,8 @@ export let card = `
 
 export let tabelTopic = `
 <tr>
-    <th>#NO</th>
-    <td>#TEXT</td>
-    <td>#SENTIMEN</td>
+    <th>#NO#</th>
+    <td>#TEXT#</td>
+    <td>#SENTIMEN#</td>
 </tr>
 `

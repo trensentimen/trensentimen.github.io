@@ -55,7 +55,7 @@ const responseData = (result) => {
                     let content =
                         tabelTopic.replace("#NO#", index + 1)
                             .replace("#TEXT#", value.text)
-                            .replace("#SENTIMEN#", value.sentimen ? value.sentimen : "Belum di analisa")
+                            .replace("#SENTIMEN#", value.sentimen !="" ? value.sentimen : "Belum di analisa")
                     addInner("isiTabel", content);
                 }
 
