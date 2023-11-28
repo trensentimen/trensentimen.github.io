@@ -25,7 +25,6 @@ const responseData = (result) => {
     // console.log(result);
     if (result.status === true) {
         let isiRow = (value) => {
-            console.log(value)
             let content =
                 card.replace("#JUDUL#", value.topicname)
                     .replace("#SOURCE#", value.source.source)
