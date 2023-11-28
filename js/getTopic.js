@@ -48,7 +48,7 @@ const responseData = (result) => {
 
         //isi tabel
         if (result.data[0].status == "inputting") {
-            if (result.data[0].datatopics.length > 0) {
+            if (result.datatopics.length > 0) {
                 let index = 0;
                 let isiRow = (value) => {
                     console.log(value)
@@ -59,7 +59,7 @@ const responseData = (result) => {
                     addInner("isiTabel", content);
                 }
 
-                result.data[0].datatopics.forEach(isiRow)
+                result.datatopics.forEach(isiRow)
 
                 document.getElementById("textNoData").style.display = "none";
             }
