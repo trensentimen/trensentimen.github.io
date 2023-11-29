@@ -8,6 +8,7 @@ const scrapData = () => {
         return;
     }
     showLoadingModal()
+    
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/scraping";
     
     let id = false;
@@ -15,7 +16,15 @@ const scrapData = () => {
     if (urlParams.has('id')) {
         if (urlParams.get('id') != '') {
             id = urlParams.get('id');
+        }else{
+            alert("parameter bermasalah, silahkan ulangi");
+            hideLoadingModal()
+            window.location.href = "sentimen.html";
         }
+    }else{
+        alert("parameter bermasalah, silahkan ulangi");
+        hideLoadingModal()
+        window.location.href = "sentimen.html";
     }
     const datainjson = {
         "_id": id
@@ -26,8 +35,8 @@ const scrapData = () => {
     } else {
         console.log("token tidak ada " + result.message);
         alert("sesi anda sudah habis, silahkan logout dan login ulang")
-        hideLoadingModal()
         window.location.href = "sentimen.html";
+        hideLoadingModal()
     }
 }
 
@@ -38,8 +47,8 @@ const responseData = (result) => {
     document.getElementById("actionButton").innerHTML = "Analyze Data";
     document.getElementById("actionButton").setAttribute("onclick", "analyzeData()");
     document.getElementById("actionButton").setAttribute("class", "button is-primary");
-
-    window.location.href = "sentimen.html";
+    
+    location.reload();
     hideLoadingModal()
     }else{
         console.log(result.message);
