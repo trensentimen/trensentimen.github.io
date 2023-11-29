@@ -9,6 +9,7 @@ const analyzeData = () => {
     showLoadingModal()
     alert("Berhasil menganalisis data")
     document.getElementById("actionButton").setAttribute("disabled", true);
+    responseData()
 }
 
 const responseData = (result) => {
