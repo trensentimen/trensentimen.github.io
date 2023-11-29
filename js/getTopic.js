@@ -48,6 +48,11 @@ const responseData = (result) => {
 
         //isi tabel
         if (result.data[0].status == "inputting") {
+
+            document.getElementById("actionButton").innerHTML = "Analyze Data";
+            document.getElementById("actionButton").setAttribute("onclick", "analyzeData()");
+            document.getElementById("actionButton").setAttribute("class", "button is-primary");
+
             if (result.datatopics.length > 0) {
                 let index = 0;
                 let isiRow = (value) => {
@@ -55,7 +60,7 @@ const responseData = (result) => {
                     let content =
                         tabelTopic.replace("#NO#", index + 1)
                             .replace("#TEXT#", value.text)
-                            .replace("#SENTIMEN#", value.sentimen !="" ? value.sentimen : "Belum di analisa")
+                            .replace("#SENTIMEN#", value.sentimen != "" ? value.sentimen : "Belum di analisa")
                     addInner("isiTabel", content);
                 }
 
@@ -63,6 +68,11 @@ const responseData = (result) => {
 
                 document.getElementById("textNoData").style.display = "none";
             }
+        } else if(result.data[0].status == "Analyzing") {
+            document.getElementById("actionButton").innerHTML = "Analyze Data";
+            document.getElementById("yourElementId").removeAttribute("onclick");
+            document.getElementById("actionButton").setAttribute("class", "button is-primary");
+            document.getElementById("actionButton").setAttribute("disabled", true);
         }
 
         hideLoadingModal()
