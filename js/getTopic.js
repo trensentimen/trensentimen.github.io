@@ -119,9 +119,9 @@ const responseData = (result) => {
                 // Set Data
                 const data = google.visualization.arrayToDataTable([
                     ['Sentimen', 'Count'],
-                    ['Positif', 90],
-                    ['Netral', 90],
-                    ['Negatif', 90],
+                    ['Positif', positif],
+                    ['Netral', netral],
+                    ['Negatif', negatif],
                 ]);
 
                 // Set Options
