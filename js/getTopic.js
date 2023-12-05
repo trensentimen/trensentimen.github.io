@@ -109,6 +109,8 @@ const responseData = (result) => {
                 }
             });
 
+            console.log(positif, negatif, netral)
+
             google.charts.load('current', { 'packages': ['corechart'] });
             google.charts.setOnLoadCallback(drawChart);
 
@@ -117,14 +119,14 @@ const responseData = (result) => {
                 // Set Data
                 const data = google.visualization.arrayToDataTable([
                     ['Sentimen', 'Count'],
-                    ['Positif', positif],
-                    ['Netral', netral],
-                    ['Negatif', negatif],
+                    ['Positif', 90],
+                    ['Netral', 90],
+                    ['Negatif', 90],
                 ]);
 
                 // Set Options
                 const options = {
-                    title: 'World Wide Wine Production'
+                    title: 'Sentimen Analisis'
                 };
 
                 // Draw
