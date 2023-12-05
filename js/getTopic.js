@@ -90,7 +90,7 @@ const responseData = (result) => {
             }
 
             document.getElementById("actionButton").innerHTML = "Analyze Data";
-            document.getElementById("yourElementId").removeAttribute("onclick");
+            document.getElementById("actionButton").removeAttribute("onclick");
             document.getElementById("actionButton").setAttribute("class", "button is-primary");
             document.getElementById("actionButton").setAttribute("disabled", true);
 
