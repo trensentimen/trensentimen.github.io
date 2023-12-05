@@ -5,6 +5,8 @@ import { addInner } from "./utilities/element.js"
 import { showLoadingModal, hideLoadingModal } from "./utilities/loading.js"
 import { tabelTopic } from "./temp/table.js";
 
+let docs = [];
+
 const Postdata = () => {
     showLoadingModal()
     const target_url = "https://asia-southeast2-trens-project.cloudfunctions.net/getTopic";
@@ -54,6 +56,7 @@ const responseData = (result) => {
             document.getElementById("actionButton").setAttribute("class", "button is-primary");
 
             if (result.datatopics.length > 0) {
+                docs = result.datatopics;
                 let index = 0;
                 let isiRow = (value) => {
                     console.log(value)
@@ -68,7 +71,7 @@ const responseData = (result) => {
 
                 document.getElementById("textNoData").style.display = "none";
             }
-        } else if(result.data[0].status == "Analyzing") {
+        } else if(result.data[0].status == "analyzing") {
             document.getElementById("actionButton").innerHTML = "Analyze Data";
             document.getElementById("yourElementId").removeAttribute("onclick");
             document.getElementById("actionButton").setAttribute("class", "button is-primary");
@@ -86,4 +89,7 @@ const responseData = (result) => {
     }
 };
 
+
 Postdata();
+
+export {docs};
