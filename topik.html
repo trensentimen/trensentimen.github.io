@@ -20,6 +20,7 @@
     <link rel="icon" href="image/favicon.png">
     <link rel="stylesheet" href="css/index.css">
     <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.8/dashboard.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
@@ -70,6 +71,9 @@
                 <br>
                 <button class="button is-danger" onclick="deleteData()">Delete</button>
                 <button class="button is-info" id="actionButton" onclick="scrapData()">Scrap Data</button>
+            </div>
+            <div class="container">
+                <div id="myChart" style="width:100%; max-width:600px; height:500px;"></div>
             </div>
             <br>
             <div class="container">
@@ -198,7 +202,7 @@
     <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.1.1/scrap.js"></script>
 
     <script type="module" src="js/analyze.js"></script>
-    
+
     <script type="module" src="https://cdn.jsdelivr.net/gh/trensentimen/js@0.0.8/deleteData.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

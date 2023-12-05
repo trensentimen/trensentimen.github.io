@@ -1,11 +1,25 @@
-//import js whatsauth yang terbaru
-import {qrController,deleteCookie} from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.1.7/whatsauth.js";
-import { wauthparam } from "https://cdn.jsdelivr.net/gh/whatsauth/js@0.1.7/config.js";
+google.charts.load('current', { 'packages': ['corechart'] });
+google.charts.setOnLoadCallback(drawChart);
 
-//definisikan url wss dan keyword menggunakan base64
-wauthparam.auth_ws="d3NzOi8vYXBpLndhLm15LmlkL3dzL3doYXRzYXV0aC9wdWJsaWM=";
-wauthparam.keyword="aHR0cHM6Ly93YS5tZS82MjgzMTMxODk1MDAwP3RleHQ9d2g0dDVhdXRoMA==";
+function drawChart() {
 
-//delete cookies session and call whatsauth qrController
-deleteCookie(wauthparam.tokencookiename);
-qrController(wauthparam);
+    // Set Data
+    const data = google.visualization.arrayToDataTable([
+        ['Contry', 'Mhl'],
+        ['Italy', 54.8],
+        ['France', 48.6],
+        ['Spain', 44.4],
+        ['USA', 23.9],
+        ['Argentina', 14.5]
+    ]);
+
+    // Set Options
+    const options = {
+        title: 'World Wide Wine Production'
+    };
+
+    // Draw
+    const chart = new google.visualization.PieChart(document.getElementById('myChart'));
+    chart.draw(data, options);
+
+}
