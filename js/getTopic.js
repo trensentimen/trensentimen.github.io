@@ -59,7 +59,7 @@ const responseData = (result) => {
                 docs = result.datatopics;
                 let index = 0;
                 let isiRow = (value) => {
-                    console.log(value)
+                    // console.log(value)
                     let content =
                         tabelTopic.replace("#NO#", index += 1)
                             .replace("#TEXT#", value.text)
