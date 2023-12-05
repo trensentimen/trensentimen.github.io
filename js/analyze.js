@@ -61,7 +61,7 @@ const responseData = (result) => {
 }
 
 const responseData2 = (result) => {
-    if (result.message === true) {
+    if (result.status === true) {
         alert("Berhasil menganalisis data")
         window.location.reload()
         hideLoadingModal()
