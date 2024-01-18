@@ -28,7 +28,6 @@ const responseData = (result) => {
             let content =
                 card.replace("#JUDUL#", value.topicname)
                     .replace("#SOURCE#", value.source.source)
-                    .replace("#LOVE#", value.love ? value.love : "0")
                     .replace("#VIEW#", value.view ? value.view : "0")
                     .replace("#ID#", value._id)
             addInner("listTopic", content);
