@@ -10,10 +10,6 @@ export let card = `
                     </div>
                 </div>
                 <footer class="card-footer">
-                //     <span class="card-footer-item">
-                //         <ion-icon size="large" name="heart"></ion-icon>
-                //         #LOVE#
-                    </span>
                     <span class="card-footer-item">
                         <ion-icon size="large" name="eye-outline"></ion-icon>
                         #VIEW#
